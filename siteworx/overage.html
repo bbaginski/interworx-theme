@@ -1,32 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bandwidth Limit Exceeded</title>
-    <style>
-      body{
-        font-family: Helvetica, Arial, sans-serif;
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bandwidth Limit Exceeded</title>
+  <style>
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      color: #fff;
+      background: #263339 url(https://static.nexcess.net/vten/brand/nex_bg.gif) no-repeat 50% 0;
+      height: 100vh;
+    }
+
+    body:before {
+      background: url(broke.png) no-repeat;
+      background-position: left 10px bottom 10px;
+      content: "";
+      height: 100%;
+      width: 100%;
+      position: fixed;
+      animation: 3.5s crack;
+      animation-fill-mode: forwards;
+      visibility: hidden;
+      opacity:.4;
+    }
+    @media only screen and (max-width: 800px) {
+      body:before {
+
+      background-position: center;
+      }
+    }
+    @keyframes crack {
+      99% {
+        visibility: hidden;
+      }
+      100% {
+        visibility: visible;
+      }
+    }
+
+    .content {
+      padding-top: 10%;
+      text-align: center;
+      position: relative;
+      z-index: 20;
+      text-shadow: 3px 3px rgb(0,0,0,0.3)
+    }
+
+    h2 {
+      position: relative;
+      color: rgba(0, 0, 0, .3);
+      font-size: 45px;
+    }
+
+    @media only screen and (max-width: 600px) {
+      h2 {
+        font-size: 24px;
+      }
+    }
+
+    h2:before {
+      content: attr(data-text);
+      position: absolute;
+      overflow: hidden;
+      max-width: 15em;
+      white-space: nowrap;
+      color: red;
+      animation: loading 5s ease-out;
+    }
+
+    @keyframes loading {
+      0% {
+        max-width: 0;
         color: #fff;
-        background: #263339 url(https://static.nexcess.net/vten/brand/nex_bg.gif) no-repeat 50% 0;
       }
-      .content {
-        margin-top: 10%;
-        text-align: center;
+      30%{
+        color:#fff;
       }
-      h4 {
-        font-weight: 300;
-      }
-      img {
-        height: 100px;
-        margin-bottom: 20px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="content">
-      <a class="logo" href="https://www.nexcess.net/"><img src="https://static.nexcess.net/vten/brand/Nexcess_v-logo_blue_tm.svg"></a>
-      <h2>Bandwidth limit exceeded</h2>
-      <h4>If you are the site owner, contact your service provider for more information.</h4>
-    </div>
-  </body>
+    }
+
+
+    h4 {
+      font-weight: 300;
+    }
+
+    img {
+      height: 100px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+    <a class="logo" href="https://www.nexcess.net/">
+      <img src="https://static.nexcess.net/vten/brand/Nexcess_v-logo_blue_tm.svg">
+    </a>
+    <h2 data-text="Bandwidth limit exceeded">Bandwidth limit exceeded</h2>
+    <h4>If you are the site owner, contact your service provider for more information.</h4>
+  </div>
+</body>
+
 </html>
